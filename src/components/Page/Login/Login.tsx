@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../utils/AuthContext/AuthContext";
-
+import "./Login.css";
 const Login: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +17,7 @@ const Login: React.FC = () => {
     }
   };
   return (
-    <div>
+    <div className="container-login">
       <form>
         <label>
           Usuario:
