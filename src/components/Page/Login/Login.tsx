@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../utils/AuthContext/AuthContext";
-import "./Login.css";
+import "./login.css";
 const Login: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -45,4 +45,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export { Login };

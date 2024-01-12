@@ -10,7 +10,9 @@ interface AuthContextType {
   logout: () => void;
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+export const AuthContext = createContext<AuthContextType | undefined>(
+  undefined
+);
 
 export const AuthProvider: React.FC<AuthContextProps> = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

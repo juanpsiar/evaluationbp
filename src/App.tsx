@@ -1,8 +1,9 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AuthProvider } from "./utils/AuthContext/AuthContext";
-import Login from "./components/Page/Login/Login";
-import LoadFile from "./components/Page/LoadFile/LoadFile";
+import { Login } from "./components/Page/Login/login";
+import { LoadFileComponent } from "./components/Page/LoadFile/load-file";
+
 import "./App.css";
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
     },
     {
       path: "/loadfile",
-      element: <LoadFile />,
+      element: <LoadFileComponent />,
     },
   ]);
 
