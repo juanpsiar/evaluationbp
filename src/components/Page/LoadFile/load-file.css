@@ -1,1 +1,31 @@
-.load-file-container {}
+.load-file-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.load-file-section {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.logout-button {
+    margin: 1rem 1rem 0 0;
+    width: 10%;
+    height: 2rem;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.button-table-interaction {
+    margin: 0.25rem 1rem;
+}

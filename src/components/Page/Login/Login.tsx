@@ -21,11 +21,13 @@ const Login: React.FC = () => {
   return (
     <div className="container-login">
       {!isLoggedIn && username.length > 0 && (
-        <label>Credenciales Incorrectas</label>
+        <div className="error-legend-container">
+          <label className="error-legend-text">Credenciales Incorrectas</label>
+        </div>
       )}
-      <form>
-        <label>
-          Usuario:
+      <form className="form-container">
+        <label className="input-field-container">
+          <div className="legend-container">Usuario:</div>
           <input
             type="text"
             value={username}
@@ -33,8 +35,9 @@ const Login: React.FC = () => {
           />
         </label>
         <br />
-        <label>
-          Contraseña:
+        <label className="input-field-container">
+          <div className="legend-container">Contraseña:</div>
+
           <input
             type="password"
             value={password}
@@ -42,9 +45,11 @@ const Login: React.FC = () => {
           />
         </label>
         <br />
-        <button type="button" onClick={handleLogin}>
-          Iniciar Sesión
-        </button>
+        <div className="login-button-container">
+          <button type="button" onClick={handleLogin}>
+            Iniciar Sesión
+          </button>
+        </div>
       </form>
     </div>
   );

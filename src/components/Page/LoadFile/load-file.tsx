@@ -60,21 +60,42 @@ const LoadFileComponent: React.FC<ExcelGridProps> = () => {
 
   return (
     <div className="load-file-container">
-      <input type="file" onChange={handleFileUpload} />
-      <button type="button" onClick={() => logout()}>
-        Cerrar Sesión
-      </button>
+      <div className="header-container">
+        <div className="load-file-section">
+          <label>Cargar archivo</label>
+          <input type="file" onChange={handleFileUpload} />
+        </div>
+        <button
+          className="logout-button"
+          type="button"
+          onClick={() => logout()}
+        >
+          Cerrar Sesión
+        </button>
+      </div>
       {gridData && gridData?.length > 0 && (
         <div>
+          <div className="button-container">
+            <button
+              className="button-table-interaction"
+              onClick={exportToExcel}
+            >
+              Exportar a Excel
+            </button>
+
+            <button
+              className="button-table-interaction"
+              onClick={handleDeleteRows}
+            >
+              Borrar Filas
+            </button>
+          </div>
           <DataGrid
             rows={gridData}
             columns={columns}
             onRowSelectionModelChange={handleRowSelection}
             editMode="row"
           />
-          <button onClick={exportToExcel}>Exportar a Excel</button>
-
-          <button onClick={handleDeleteRows}>Borrar Filas</button>
         </div>
       )}
     </div>

@@ -1,6 +1,44 @@
 .container-login {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.input-field-container {
+    display: flex;
+    width: 75%;
+}
+
+.legend-container {
+    margin-left: 0.25rem;
+    width: 30%;
+}
+
+.login-button-container {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+}
+
+.login-button {
+    width: 30%;
+}
+
+.error-legend-container {
+    margin: 1rem;
+    width: 50%;
+    color: red;
+    display: flex;
+}
+
+.error-legend-text {
+    width: 50%;
+    text-align: center;
 }
