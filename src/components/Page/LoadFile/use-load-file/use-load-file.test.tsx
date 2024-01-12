@@ -35,17 +35,29 @@ describe("useLoadFile Hook", () => {
     expect(result.current.handleDeleteRows).toBeInstanceOf(Function);
     expect(result.current.exportToExcel).toBeInstanceOf(Function);
 
-    // Ensure navigation is called
+    const mockFileList: FileList = {
+      0: new File(["file content"], "test.xlsx", {
+        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      }),
+      length: 1,
+      item: (index: number) => null,
+      [Symbol.iterator]: function* () {
+        for (let i = 0; i < this.length; i++) {
+          yield this[i];
+        }
+      },
+    };
+
+    // Create a mock event object
+    const mockEvent = {
+      target: {
+        files: mockFileList,
+      },
+    } as React.ChangeEvent<HTMLInputElement>;
+
+    // Call handleFileUpload with the mock event
     act(() => {
-      result.current.handleFileUpload({
-        target: {
-          files: [
-            new File(["file content"], "test.xlsx", {
-              type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-            }),
-          ],
-        },
-      });
+      result.current.handleFileUpload(mockEvent);
     });
 
     expect(result.current.gridData).toEqual([]);
