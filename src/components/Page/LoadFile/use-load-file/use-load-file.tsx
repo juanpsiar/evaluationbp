@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import * as XLSX from "xlsx";
 import { useAuth } from "../../../../utils/AuthContext/AuthContext";
-import { DataGrid, GridRowId, GridColDef } from "@mui/x-data-grid";
+import { GridRowId } from "@mui/x-data-grid";
 
-const useLoadFile = () => {
+const useLoadFile = (useNavigate: any) => {
   const [gridData, setGridData] = useState<any[]>([]);
   const [selectedRows, setSelectedRows] = useState<GridRowId[]>([]);
   const { isLoggedIn, logout } = useAuth();
   const navigate = useNavigate();
-
   useEffect(() => {
     if (!isLoggedIn) {
       navigate("/");
@@ -65,7 +63,9 @@ const useLoadFile = () => {
 
   return {
     gridData,
+    setGridData,
     selectedRows,
+    setSelectedRows,
     logout,
     handleFileUpload,
     handleRowSelection,

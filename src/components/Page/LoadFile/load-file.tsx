@@ -1,19 +1,20 @@
 import React from "react";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { useLoadFile } from "./use-load-file/use-load-file";
+import { useNavigate } from "react-router-dom";
+
 import "./load-file.css";
 interface ExcelGridProps {}
 
 const LoadFileComponent: React.FC<ExcelGridProps> = () => {
   const {
     gridData,
-    selectedRows,
     logout,
     handleFileUpload,
     handleRowSelection,
     handleDeleteRows,
     exportToExcel,
-  } = useLoadFile();
+  } = useLoadFile(useNavigate);
 
   const columns: GridColDef[] = [
     {
